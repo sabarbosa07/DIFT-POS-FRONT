@@ -11,18 +11,27 @@ import { ToastService } from './services/toast.service';
 })
 export class ToastComponent implements OnInit, OnDestroy {
   subs: Subscription = new Subscription; 
-  lisObservers$: Array<Subscription> = [];
+
   constructor(private messageService: MessageService,
     private toastService: ToastService,
     private primengConfig: PrimeNGConfig,
     
-    ) { }
+    ) { 
+      this.primengConfig.ripple = true;
+      this.subs = this.toastService.mensaje$.subscribe((msg) => {
+        setTimeout(() => {
+          this.messageService.add(msg);
+      })        
+      });
+
+    }
 
   ngOnInit(): void {
-    this.primengConfig.ripple = true;
-    this.subs = this.toastService.mensaje$.subscribe((msg) => {
-      this.messageService.add(msg);
-    });
+
+  }
+
+  ngAfterViewInit() {
+    
   }
 
   ngOnDestroy(): void {
