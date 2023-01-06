@@ -1,0 +1,22 @@
+<!-- <app-menu></app-menu> -->
+<!-- <div class="side-bar">
+    <ul class="side-bar__list list-one">
+        <li *ngFor="let item of mainMenu.defaultOptions">
+            <div class="list-wrapper-item">
+                <i [ngClass]="['uil',item.icon]"></i>
+                <span class="side-bar__list list-label">{{item.name}}</span>
+            </div>
+        </li>
+    </ul>
+</div> -->
+
+<ng-container>
+    <p-panelMenu [model]="menuItems" [multiple]="false"></p-panelMenu>
+    <!-- <ul>
+        <li><a class="p-ripple p-element ng-star-inserted active-route" routerLink="/">
+                <i [ngClass]="item.icon" class="layout-menuitem-icon"></i>
+                <span class="layout-menuitem-text">{{item.name}}</span>
+            </a>
+        </li>
+    </ul> -->
+</ng-container>
